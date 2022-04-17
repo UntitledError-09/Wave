@@ -2,7 +2,8 @@ const fs = require('fs');
 const Discord = require('discord.js');
 const Client = require('./client/Client');
 const config = require('./config.json');
-const {Player} = require('discord-player');
+const { Player } = require('discord-player');
+require('dotenv').config();
 
 const client = new Client();
 client.commands = new Discord.Collection();
@@ -14,7 +15,7 @@ for (const file of commandFiles) {
   client.commands.set(command.name, command);
 }
 
-console.log(client.commands);
+// console.log(client.commands);
 
 const player = new Player(client);
 
@@ -50,7 +51,7 @@ client.once('ready', async () => {
   console.log('Ready!');
 });
 
-client.on('ready', function() {
+client.on('ready', function () {
   client.user.setActivity(config.activity, { type: config.activityType });
 });
 
@@ -96,4 +97,4 @@ client.on('interactionCreate', async interaction => {
   }
 });
 
-client.login(config.token);
+client.login(process.env.dc_bot_token);
