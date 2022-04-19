@@ -1,3 +1,5 @@
+const express = require('express');
+const app = express();
 const fs = require('fs');
 const Discord = require('discord.js');
 const Client = require('./client/Client');
@@ -98,3 +100,6 @@ client.on('interactionCreate', async interaction => {
 });
 
 client.login(process.env.dc_bot_token);
+
+const PORT = process.env.PORT || 8090;
+app.listen(PORT, () => { console.log(`Server listening on PORT: ${PORT}`); });
