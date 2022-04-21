@@ -101,5 +101,11 @@ client.on('interactionCreate', async interaction => {
 
 client.login(process.env.dc_bot_token);
 
+app.get('/', (req, res) => {
+  res.send(`To access Wave-09 Discord Music Bot, please contact UntitledError-09#6811. 
+  
+  Bot Link: https://discord.com/api/oauth2/authorize?client_id=964972688869314570&permissions=257701472320&scope=bot`);
+})
+
 const PORT = process.env.PORT || 8090;
 app.listen(PORT, () => { console.log(`Server listening on PORT: ${PORT}`); });
